@@ -39,7 +39,7 @@ class Landscape:
     def get_variable_lands(self):
         """Function to get the small sublandscapes size of 4x4"""
         new_l = []
-        divider = self.land_size // config.TILE_SIZE
+        divider = self.land_size // config['tiles']['TILE_SIZE']
         arr = np.array(self.bushes)
         ver_split = np.array_split(arr, divider, axis=0)
 
@@ -52,7 +52,7 @@ class Landscape:
 
     def get_variables(self):
         """Gets the coordinates of 4x4 divided sublandscapes."""
-        divider = self.land_size // config.TILE_SIZE
+        divider = self.land_size // config['tiles']['TILE_SIZE']
         startX, startY = 0, 0
         variables = [(startX, startY)]
         for i in range(divider ** 2):
@@ -119,20 +119,21 @@ class Landscape:
         """Considering the land size, calculates the next location to put the tile by incrementing the previous
         coordinates with tile size
         """
-        if startX + config.TILE_SIZE < self.land_size:
-            startX += config.TILE_SIZE
+        if startX + config['tiles']['TILE_SIZE'] < self.land_size:
+            startX += config['tiles']['TILE_SIZE']
         else:
             startX = 0
 
-            if startY + config.TILE_SIZE < self.land_size:
-                startY += config.TILE_SIZE
+            if startY + config['tiles']['TILE_SIZE'] < self.land_size:
+                startY += config['tiles']['TILE_SIZE']
         return startX, startY
 
     def print_output(self):
         """Prints the solution map as the output"""
         res = '# Tiles:\n'
         for i, (key, val) in enumerate(self.solution_map.items()):
-            res += f'{i} {config.TILE_SIZE} {val}\n'
+            tile_size = config['tiles']['TILE_SIZE']
+            res += f'{i} {tile_size} {val}\n'
         return res
 
     def __str__(self) -> str:
@@ -141,9 +142,9 @@ class Landscape:
         for i in range(self.land_size):
             for j in range(self.land_size):
                 if self.bushes[i][j] > 0:
-                    res += str(self.bushes[i][j]) + config.CELL_SEPARATOR
+                    res += str(self.bushes[i][j]) + config['parser']['CELL_SEPARATOR']
                 else:
-                    res += ' ' + config.CELL_SEPARATOR
+                    res += ' ' + config['parser']['CELL_SEPARATOR']
             res += config.LINE_SEPARATOR
         res += "_______________________________________"
         return res
