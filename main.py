@@ -3,15 +3,18 @@ from landscape import Landscape
 from backtracking import solve
 import os
 import time
+import argparse
+
+# parser to parse the input file
+parser = argparse.ArgumentParser(description="Tile placement problem")
+parser.add_argument("--input_file", "-i" type=str, help="Input file to be parsed", default="inputs/tilesproblem_1326658928646700.txt")
+args = parser.parse_args()
 
 
-if __name__ == "__main__":
-    input_name = 'tilesproblem_1326658928646700.txt'
-    file = os.path.join('inputs', input_name)
-    
-    tile_input = TPInput(file)
+
+def place_tiles(input_file: str) -> None:
+    tile_input = TPInput(input_file)
     landscape = Landscape(tile_input)
-    
     print(landscape)
     print(landscape.targets)
     
@@ -21,4 +24,8 @@ if __name__ == "__main__":
     print(landscape.count_colors(landscape.bushes))
     print(landscape.print_output())
     
-    print("CSP performed in %.3f seconds" % (time.time() - start_time))
+    print("CSP performed in %.3f seconds" % (time.time() - start_time)
+
+if __name__ == "__main__":
+    place_tiles(args.input_file)
+
