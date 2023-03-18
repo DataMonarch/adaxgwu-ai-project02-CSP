@@ -7,5 +7,13 @@ This project aims to solve the tile placement problem using Constraint Satisfact
 Clone this repository using the command:
 
 ```shell
-git clone https://github.com/<username>/tile-placement-problem.git
+git clone https://github.com/DataMonarch/adaxgwu-ai-project02-CSP
+```
+
+# Usage
+
+To use the program, run the main.py script in the terminal and provide the path to the input file using the -i or --input_file flags. For example:
+
+```shell
+python main.py -i inputs/tilesproblem_1326658928646700.txt
 ```
