@@ -13,7 +13,7 @@ def tile_count(subland1, subland2, tile1, tile2):
     if tile1.count - 1 < 0 or tile2.count - 1 < 0:
         return False
     else:
-        return False
+        return True
 
 def bush_count(subland1, subland2, tile1, tile2):
     """Checks whther the tiles can be put to the landscape at the same time vithout violating the final color

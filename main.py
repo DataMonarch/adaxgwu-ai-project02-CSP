@@ -20,4 +20,5 @@ if __name__ == "__main__":
     print(landscape)
     print(landscape.count_colors(landscape.bushes))
     print(landscape.print_output())
+    
     print("CSP performed in %.3f seconds" % (time.time() - start_time))
