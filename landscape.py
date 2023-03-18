@@ -138,7 +138,11 @@ class Landscape:
 
     def __str__(self) -> str:
         """Str function to print the landscape instance in readable format"""
-        res = "\n" + "#-"*20 + "\b\n"
+        separator_line = "\n" + "#-"*20 + "#\n\n"
+        header = "\nLANDSCAPE\n"
+        len_dashes = (len(separator_line) - len(header)) // 2
+        res = "-"*len_dashes + header + "-"*len_dashes
+        res += separator_line
         for i in range(self.land_size):
             for j in range(self.land_size):
                 if self.bushes[i][j] > 0:
@@ -146,7 +150,7 @@ class Landscape:
                 else:
                     res += ' ' + config['parser']['CELL_SEPARATOR']
             res += config['parser']['LINE_SEPARATOR']
-        res += "\n" + "#-"*20 + "\b\n"
+        res += "\n" + "#-"*20 + "#\n"
         return res
 
     #####################################################################################################################
