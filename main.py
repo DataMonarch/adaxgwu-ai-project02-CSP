@@ -7,7 +7,7 @@ import argparse
 
 # parser to parse the input file
 parser = argparse.ArgumentParser(description="Tile placement problem")
-parser.add_argument("--input_file", "-i" type=str, help="Input file to be parsed", default="inputs/tilesproblem_1326658928646700.txt")
+parser.add_argument("--input_file", "-i", type=str, help="Input file to be parsed", default="inputs/tilesproblem_1326658928646700.txt")
 args = parser.parse_args()
 
 
