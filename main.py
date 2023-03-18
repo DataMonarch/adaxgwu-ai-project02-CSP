@@ -24,7 +24,7 @@ def place_tiles(input_file: str) -> None:
     print(landscape.count_colors(landscape.bushes))
     print(landscape.print_output())
     
-    print("CSP performed in %.3f seconds" % (time.time() - start_time)
+    print("CSP performed in %.3f seconds" % (time.time() - start_time))
 
 if __name__ == "__main__":
     place_tiles(args.input_file)
