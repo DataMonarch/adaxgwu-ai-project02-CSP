@@ -1,7 +1,8 @@
 import re
-import config
 from tile import Tile
 
+with open('config.toml', 'r') as f:
+    config = toml.load(f)
 
 class TPInput:
 
@@ -11,7 +12,7 @@ class TPInput:
 
         self.lines = list(map(lambda x: re.sub('[\n]$', '', x), lines))
         self.land_idx, self.tile_idx, self.target_idx, self.land_size = self.get_inds_and_size()
-        self.COLORS = config.COLORS
+        self.COLORS = config['tiles']['COLORS']
         self.land_arr = self.read_landscape()
         self.tiles = self.read_tiles()
         self.targets = self.read_targets()
