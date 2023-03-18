@@ -130,7 +130,7 @@ class Landscape:
 
     def print_output(self):
         """Prints the solution map as the output"""
-        res = '# Tiles:\n'
+        res = '\n# Tiles:\n'
         for i, (key, val) in enumerate(self.solution_map.items()):
             tile_size = config['tiles']['TILE_SIZE']
             res += f'{i} {tile_size} {val}\n'
@@ -138,14 +138,14 @@ class Landscape:
 
     def __str__(self) -> str:
         """Str function to print the landscape instance in readable format"""
-        res = "\n_______________________________________\n"
+        res = "\n" + "#"*25 + "\n"
         for i in range(self.land_size):
             for j in range(self.land_size):
                 if self.bushes[i][j] > 0:
                     res += str(self.bushes[i][j]) + config['parser']['CELL_SEPARATOR']
                 else:
                     res += ' ' + config['parser']['CELL_SEPARATOR']
-            res += config.LINE_SEPARATOR
+            res += config['parser']['LINE_SEPARATOR']
         res += "_______________________________________"
         return res
 
