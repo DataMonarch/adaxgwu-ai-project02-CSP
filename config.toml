@@ -1,0 +1,7 @@
+[tiles]
+TILE_SIZE = 4
+COLORS = 4
+
+[parser]
+CELL_SEPARATOR = " "
+LINE_SEPARATOR = "\n"
